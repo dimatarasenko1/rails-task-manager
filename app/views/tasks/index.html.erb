@@ -1,0 +1,15 @@
+<h1 class="mb-3">My Tasks</h1>
+<% @tasks.each do |t| %>
+<div class="d-flex m-3 border rounded p-3 align-items-center">
+  <i <%= t.completed ? "class='far fa-check-square'" : "class='far fa-square'" %>>
+  </i>
+  <%= link_to task_path(t) do %>
+    <h2><%= t.title %></h2>
+  <% end %>
+  <%= link_to task_path(t), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fas fa-trash ml-3"></i>
+  <% end %>
+</div>
+<% end %>
+<%= link_to "Add Task", tasks_new_path, class: "btn btn-secondary d-block mt-3" %>
+

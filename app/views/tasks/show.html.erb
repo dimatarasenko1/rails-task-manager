@@ -1,0 +1,15 @@
+<h1><%= @task.title %></h1>
+<h2>Created at: <%= @task.created_at %></h2>
+<p><%= @task.details %></p>
+<%= link_to "Edit this task", edit_task_path(@task) %>
+<% if @task.completed %>
+  <div class="d-flex">
+    <i class='far fa-check-square'></i><p>This task is completed</p>
+  </div>
+  <% else %>
+  <div class="d-flex">
+    <i class='far fa-square'></i><p>This task is not completed yet.</p>
+  </div>
+<% end %>
+<br>
+<%= link_to "Back to List", tasks_path %>
